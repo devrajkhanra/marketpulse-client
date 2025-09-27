@@ -1,9 +1,11 @@
+// src/App.tsx
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Header from './components/Header'
-import DatePicker from './components/DatePicker'
-import DownloadSection from './components/DownloadSection'
-import StatusCard from './components/StatusCard'
+import HeaderContainer from './features/header/HeaderContainer'
+import DatePickerContainer from './features/date-picker/DatePickerContainer'
+import DownloadContainer from './features/download/DownloadContainer'
+import StatusContainer from './features/status/StatusContainer'
+import PerformanceContainer from './features/performance/PerformanceContainer'
 import { useCurrentDate } from './hooks/useApi'
 import './App.css'
 
@@ -13,44 +15,53 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
-      
+      <HeaderContainer />
+
       <main className="main-content">
-        <motion.div 
+        <motion.div
           className="container"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <div className="grid">
-            <motion.div 
+            <motion.div
               className="card-section"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <StatusCard currentDate={currentDate} />
+              <StatusContainer currentDate={currentDate} />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="card-section"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <DatePicker 
+              <PerformanceContainer />
+            </motion.div>
+
+            <motion.div
+              className="card-section"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <DatePickerContainer
                 selectedDates={selectedDates}
                 onDatesChange={setSelectedDates}
               />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="card-section full-width"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <DownloadSection 
+              <DownloadContainer
                 selectedDates={selectedDates}
                 onClearDates={() => setSelectedDates([])}
               />

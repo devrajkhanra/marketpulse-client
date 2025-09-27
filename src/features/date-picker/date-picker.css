@@ -1,3 +1,5 @@
+/* src/features/date-picker/date-picker.css */
+/* (same as previous DatePicker.css) */
 .date-picker {
   height: 100%;
   display: flex;
@@ -117,59 +119,63 @@
   font-family: var(--font-mono);
   font-size: 0.875rem;
   transition: all var(--transition-normal);
+  appearance: none;
 }
 
 .date-input:focus {
-  background: rgba(255, 255, 255, 0.08);
   border-color: var(--primary-500);
-  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  outline: none;
 }
 
-.date-input::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-  cursor: pointer;
+.date-input::placeholder {
+  color: var(--gray-500);
 }
 
 .range-separator {
-  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
   color: var(--gray-400);
-  font-weight: 500;
-  white-space: nowrap;
+  font-size: 0.875rem;
+  padding: 0 var(--space-2);
 }
 
 .add-date-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
   background: var(--gradient-primary);
   border: none;
   border-radius: var(--radius-lg);
   color: white;
-  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-normal);
+  min-height: 44px;
   box-shadow: var(--shadow-md);
-  white-space: nowrap;
 }
 
-.add-date-btn:hover:not(:disabled) {
-  box-shadow: var(--shadow-lg);
+.add-date-btn:hover {
   transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
 }
 
 .add-date-btn:disabled {
-  opacity: 0.7;
+  opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
+}
+
+.add-date-btn span {
+  white-space: nowrap;
 }
 
 .loading-spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top: 2px solid white;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -188,52 +194,47 @@
 }
 
 .section-title {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 600;
-  color: var(--gray-200);
-}
-
-.selected-count {
-  font-size: 0.875rem;
-  color: var(--gray-400);
-  font-weight: 500;
+  color: var(--gray-100);
+  margin: 0;
 }
 
 .clear-all-btn {
-  padding: var(--space-2) var(--space-3);
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: var(--space-1) var(--space-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
-  color: var(--error-400);
-  font-size: 0.875rem;
-  font-weight: 500;
+  color: var(--gray-300);
+  font-size: 0.75rem;
   cursor: pointer;
   transition: all var(--transition-normal);
 }
 
 .clear-all-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
-  border-color: var(--error-500);
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: var(--error-400);
 }
 
 .selected-dates-list {
   flex: 1;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+  padding-right: var(--space-2);
   max-height: 300px;
-  overflow-y: auto;
-  padding-right: var(--space-1);
 }
 
 .selected-date-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-3);
+  padding: var(--space-2) var(--space-3);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   transition: all var(--transition-normal);
 }
 
@@ -302,35 +303,35 @@
     gap: var(--space-2);
     margin-bottom: var(--space-4);
   }
-  
+
   .date-picker-icon {
     width: 40px;
     height: 40px;
   }
-  
+
   .date-picker-title {
     font-size: 1.25rem;
   }
-  
+
   .picker-type-toggle {
     gap: var(--space-2);
   }
-  
+
   .picker-type-option {
     padding: var(--space-2) var(--space-3);
     font-size: 0.8rem;
   }
-  
+
   .single-date-picker,
   .range-date-picker {
     gap: var(--space-2);
   }
-  
+
   .add-date-btn {
     padding: var(--space-2) var(--space-3);
     font-size: 0.8rem;
   }
-  
+
   .selected-dates-list {
     max-height: 250px;
   }
@@ -341,15 +342,15 @@
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .date-input-wrapper {
     min-width: unset;
   }
-  
+
   .range-separator {
     text-align: center;
   }
-  
+
   .add-date-btn {
     width: 100%;
   }

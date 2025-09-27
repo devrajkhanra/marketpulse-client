@@ -1,3 +1,5 @@
+/* src/features/header/header.css */
+/* (same as previous Header.css) */
 .header {
   background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(20px);
@@ -105,15 +107,15 @@
   .header-container {
     padding: 0 var(--space-3);
   }
-  
+
   .logo-title {
     font-size: 1.25rem;
   }
-  
+
   .header-stats {
     gap: var(--space-2);
   }
-  
+
   .stat-item {
     padding: var(--space-1) var(--space-2);
     font-size: 0.8rem;
@@ -124,20 +126,20 @@
   .header-container {
     padding: 0 var(--space-2);
   }
-  
+
   .logo-section {
     gap: var(--space-2);
   }
-  
+
   .logo-icon {
     width: 40px;
     height: 40px;
   }
-  
+
   .logo-title {
     font-size: 1.125rem;
   }
-  
+
   .logo-subtitle {
     font-size: 0.7rem;
   }

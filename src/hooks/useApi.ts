@@ -14,6 +14,11 @@ interface DateDetails {
   dayOfWeek: string
 }
 
+interface TopGainerLoser {
+  topGainers: { symbol: string; percentage: number }[];
+  topLosers: { symbol: string; percentage: number }[];
+}
+
 // API Functions
 const getCurrentDate = async (): Promise<DateDetails> => {
   const response = await api.get('/date/details')
@@ -27,6 +32,11 @@ const getLastDownloadDate = async (): Promise<string | null> => {
 
 const downloadCSVs = async (dates: string[]): Promise<string[]> => {
   const response = await api.post('/nse/download', { dates })
+  return response.data
+}
+
+const getTopGainerLoser = async (date?: string): Promise<TopGainerLoser> => {
+  const response = await api.get(`/performance/top-gainers-losers${date ? `?date=${date}` : ''}`)
   return response.data
 }
 
@@ -49,12 +59,20 @@ export const useLastDownloadDate = () => {
 
 export const useDownloadCSVs = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: downloadCSVs,
     onSuccess: () => {
       // Invalidate and refetch last download date
       queryClient.invalidateQueries({ queryKey: ['lastDownloadDate'] })
     },
+  })
+}
+
+export const useTopGainerLoser = (date?: string) => {
+  return useQuery({
+    queryKey: ['topGainerLoser', date],
+    queryFn: () => getTopGainerLoser(date),
+    staleTime: 5 * 60 * 1000, // 5 minutes
   })
 }
