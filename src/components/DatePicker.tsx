@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, Plus, X, CalendarDays } from 'lucide-react'
+import { Calendar, Plus, X, CalendarDays, CalendarRange } from 'lucide-react'
 import { format, parse, isValid } from 'date-fns'
 import toast from 'react-hot-toast'
 import './DatePicker.css'
@@ -94,124 +94,209 @@ const DatePicker = ({ selectedDates, onDatesChange }: DatePickerProps) => {
   }
 
   return (
-    <div className="datepicker-container">
+    <div className="date-picker">
+      <motion.div 
+        className="date-picker-header"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="date-picker-icon">
+          <Calendar size={24} />
+        </div>
+        <h2 className="date-picker-title">Date Selection</h2>
+      </motion.div>
 
-      {/* Picker Type Toggle */}
-      <div className="picker-type-toggle" style={{ marginBottom: "1rem", display: "flex", gap: "1rem" }}>
-        <label>
-          <input
-            type="radio"
-            value="single"
-            checked={pickerType === 'single'}
-            onChange={() => setPickerType('single')}
-          />
-          <span style={{ marginLeft: 4 }}>Single Date</span>
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="range"
-            checked={pickerType === 'range'}
-            onChange={() => setPickerType('range')}
-          />
-          <span style={{ marginLeft: 4 }}>Date Range</span>
-        </label>
-      </div>
-
-      <div className="datepicker-inputs">
-        {pickerType === 'single' ? (
-          <div className="single-date-picker">
+      <motion.div 
+        className="picker-type-section"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        <div className="picker-type-toggle">
+          <label className={`picker-type-option ${pickerType === 'single' ? 'active' : ''}`}>
             <input
-              type="date"
-              value={inputDate}
-              onChange={e => setInputDate(e.target.value)}
-              className="datepicker-input"
+              type="radio"
+              value="single"
+              checked={pickerType === 'single'}
+              onChange={() => setPickerType('single')}
             />
-            <button
-              className="datepicker-add-btn"
-              onClick={addSingleDate}
-              disabled={isAdding}
-              style={{ marginLeft: 8 }}
+            <CalendarDays size={16} />
+            <span>Single Date</span>
+          </label>
+          <label className={`picker-type-option ${pickerType === 'range' ? 'active' : ''}`}>
+            <input
+              type="radio"
+              value="range"
+              checked={pickerType === 'range'}
+              onChange={() => setPickerType('range')}
+            />
+            <CalendarRange size={16} />
+            <span>Date Range</span>
+          </label>
+        </div>
+      </motion.div>
+
+      <motion.div 
+        className="date-input-section"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <AnimatePresence mode="wait">
+          {pickerType === 'single' ? (
+            <motion.div
+              key="single"
+              className="single-date-picker"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ duration: 0.3 }}
             >
-              <Plus /> Add
-            </button>
-          </div>
-        ) : (
-          <div className="range-date-picker" style={{ display: "flex", gap: "0.5rem" }}>
-            <input
-              type="date"
-              value={rangeStart}
-              onChange={e => setRangeStart(e.target.value)}
-              className="datepicker-input"
-              placeholder="Start Date"
-            />
-            <span>to</span>
-            <input
-              type="date"
-              value={rangeEnd}
-              onChange={e => setRangeEnd(e.target.value)}
-              className="datepicker-input"
-              placeholder="End Date"
-            />
-            <button
-              className="datepicker-add-btn"
-              onClick={addRange}
-              disabled={isAdding}
-              style={{ marginLeft: 8 }}
+              <div className="date-input-wrapper">
+                <Calendar className="input-icon" size={16} />
+                <input
+                  type="date"
+                  value={inputDate}
+                  onChange={e => setInputDate(e.target.value)}
+                  className="date-input"
+                />
+              </div>
+              <button
+                className="add-date-btn"
+                onClick={addSingleDate}
+                disabled={isAdding}
+              >
+                {isAdding ? (
+                  <div className="loading-spinner" />
+                ) : (
+                  <Plus size={16} />
+                )}
+                <span>Add Date</span>
+              </button>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="range"
+              className="range-date-picker"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
             >
-              <CalendarDays /> Add Range
-            </button>
-          </div>
-        )}
-      </div>
+              <div className="date-input-wrapper">
+                <Calendar className="input-icon" size={16} />
+                <input
+                  type="date"
+                  value={rangeStart}
+                  onChange={e => setRangeStart(e.target.value)}
+                  className="date-input"
+                  placeholder="Start Date"
+                />
+              </div>
+              <span className="range-separator">to</span>
+              <div className="date-input-wrapper">
+                <Calendar className="input-icon" size={16} />
+                <input
+                  type="date"
+                  value={rangeEnd}
+                  onChange={e => setRangeEnd(e.target.value)}
+                  className="date-input"
+                  placeholder="End Date"
+                />
+              </div>
+              <button
+                className="add-date-btn"
+                onClick={addRange}
+                disabled={isAdding}
+              >
+                {isAdding ? (
+                  <div className="loading-spinner" />
+                ) : (
+                  <CalendarRange size={16} />
+                )}
+                <span>Add Range</span>
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
 
-      <div className="datepicker-selected">
-        {selectedDates.length === 0 ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="datepicker-empty"
-          >
-            <Calendar className="calendar-icon" />
-            <span>No dates selected</span>
-            <br />
-            <span className="datepicker-help">
-              Add dates to download NSE data
-            </span>
-          </motion.div>
-        ) : (
-          <motion.ul
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="datepicker-list"
-          >
-            {pickerType === 'single' && selectedDates.length === 1 && (
-              <li key={selectedDates[0]} className="datepicker-list-item">
-                <span>{formatDateFromAPI(selectedDates[0])}</span>
-                <button
-                  className="datepicker-remove-btn"
-                  onClick={() => removeDate(selectedDates[0])}
+      <motion.div 
+        className="selected-dates-section"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <div className="selected-dates-header">
+          <h3 className="section-title">Selected Dates</h3>
+          {selectedDates.length > 0 && (
+            <button className="clear-all-btn" onClick={clearAllDates}>
+              Clear All
+            </button>
+          )}
+        </div>
+
+        <AnimatePresence>
+          {selectedDates.length === 0 ? (
+            <motion.div
+              className="empty-state"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Calendar className="empty-icon" size={48} />
+              <p>No dates selected</p>
+              <span>Add dates to download NSE data</span>
+            </motion.div>
+          ) : (
+            <motion.div
+              className="selected-dates-list"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              {pickerType === 'single' && selectedDates.length === 1 && (
+                <motion.div
+                  key={selectedDates[0]}
+                  className="selected-date-item"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  layout
                 >
-                  <X />
-                </button>
-              </li>
-            )}
-            {pickerType === 'range' && selectedDates.length === 2 && (
-              <li className="datepicker-list-item">
-                <span>
-                  {formatDateFromAPI(selectedDates[0])} &nbsp;to&nbsp; {formatDateFromAPI(selectedDates[1])}
-                </span>
-                <button
-                  className="datepicker-remove-btn"
-                  onClick={clearAllDates}
+                  <span className="date-text">{formatDateFromAPI(selectedDates[0])}</span>
+                  <button
+                    className="remove-date-btn"
+                    onClick={() => removeDate(selectedDates[0])}
+                  >
+                    <X size={12} />
+                  </button>
+                </motion.div>
+              )}
+              {pickerType === 'range' && selectedDates.length === 2 && (
+                <motion.div
+                  className="selected-date-item"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  layout
                 >
-                  <X /> Clear Range
-                </button>
-              </li>
-            )}
-          </motion.ul>
-        )}
-      </div>
+                  <span className="date-text">
+                    {formatDateFromAPI(selectedDates[0])} → {formatDateFromAPI(selectedDates[1])}
+                  </span>
+                  <button
+                    className="remove-date-btn"
+                    onClick={clearAllDates}
+                  >
+                    <X size={12} />
+                  </button>
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </div>
   )
 }
