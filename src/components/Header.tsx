@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion'
 import { TrendingUp, Activity, BarChart3 } from 'lucide-react'
+import Navigation from './Navigation'
+import { PageType } from '../types'
 import './Header.css'
 
-const Header = () => {
+interface HeaderProps {
+  currentPage: PageType
+  onPageChange: (page: PageType) => void
+}
+
+const Header = ({ currentPage, onPageChange }: HeaderProps) => {
   return (
     <motion.header 
       className="header"
@@ -36,6 +43,7 @@ const Header = () => {
             <BarChart3 size={16} />
             <span>Live Data</span>
           </div>
+          <Navigation currentPage={currentPage} onPageChange={onPageChange} />
         </motion.div>
       </div>
     </motion.header>
