@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Download, BarChart3, TrendingUp, Database, CheckCircle, Clock, Users } from 'lucide-react'
+import { Download, ChartBar as BarChart3, TrendingUp, Database, CircleCheck as CheckCircle, Clock, Users } from 'lucide-react'
 import './Dashboard.css'
 
 const Dashboard = () => {

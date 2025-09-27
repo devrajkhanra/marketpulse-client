@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { TrendingUp, Activity, BarChart3 } from 'lucide-react'
+import { TrendingUp, Activity, ChartBar as BarChart3 } from 'lucide-react'
 import Navigation from './Navigation'
 import { PageType } from '../types'
 import './Header.css'

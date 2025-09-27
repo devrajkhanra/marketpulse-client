@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { BarChart3, TrendingUp, PieChart, LineChart, Activity, Target } from 'lucide-react'
+import { ChartBar as BarChart3, TrendingUp, ChartPie as PieChart, ChartLine as LineChart, Activity, Target } from 'lucide-react'
 import './Analytics.css'
 
 const Analytics = () => {

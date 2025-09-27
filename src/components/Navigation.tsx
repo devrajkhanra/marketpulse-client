@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, Home, Download, BarChart3, Settings } from 'lucide-react'
+import { Menu, Hop as Home, Download, ChartBar as BarChart3, Settings } from 'lucide-react'
 import { PageType, NavigationItem } from '../types'
 import './Navigation.css'
 
