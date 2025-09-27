@@ -1,21 +1,24 @@
 // src/App.tsx
 import { useState } from 'react'
+import type { PageType } from './types'
 import { motion } from 'framer-motion'
-import HeaderContainer from './features/header/HeaderContainer'
-import DatePickerContainer from './features/date-picker/DatePickerContainer'
-import DownloadContainer from './features/download/DownloadContainer'
-import StatusContainer from './features/status/StatusContainer'
-import PerformanceContainer from './features/performance/PerformanceContainer'
+import Header from './features/header/HeaderContainer'
+import DatePicker from './features/date-picker/DatePickerContainer'
+import DownloadSection from './features/download/DownloadContainer'
+import StatusCard from './features/status/StatusContainer'
 import { useCurrentDate } from './hooks/useApi'
 import './App.css'
+import PerformanceContainer from './features/performance/PerformanceContainer'
+
 
 function App() {
-  const [selectedDates, setSelectedDates] = useState<string[]>([])
-  const { data: currentDate } = useCurrentDate()
+  const [currentPage, setCurrentPage] = useState<PageType>('dashboard');
+  const [selectedDates, setSelectedDates] = useState<string[]>([]);
+  const { data: currentDate } = useCurrentDate();
 
   return (
     <div className="app">
-      <HeaderContainer />
+      <Header currentPage={currentPage} onPageChange={setCurrentPage} />
 
       <main className="main-content">
         <motion.div
@@ -31,7 +34,7 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <StatusContainer currentDate={currentDate} />
+              <StatusCard currentDate={currentDate} />
             </motion.div>
 
             <motion.div
@@ -40,28 +43,28 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <PerformanceContainer />
-            </motion.div>
-
-            <motion.div
-              className="card-section"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <DatePickerContainer
+              <DatePicker
                 selectedDates={selectedDates}
                 onDatesChange={setSelectedDates}
               />
             </motion.div>
 
             <motion.div
+              className="card-section"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <PerformanceContainer />
+            </motion.div>
+
+            <motion.div
               className="card-section full-width"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <DownloadContainer
+              <DownloadSection
                 selectedDates={selectedDates}
                 onClearDates={() => setSelectedDates([])}
               />
@@ -70,7 +73,7 @@ function App() {
         </motion.div>
       </main>
     </div>
-  )
+  );
 }
 
 export default App

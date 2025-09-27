@@ -1,9 +1,15 @@
 // src/features/header/HeaderPresenter.tsx
 import { motion } from 'framer-motion'
 import { TrendingUp, Activity, BarChart3 } from 'lucide-react'
+import type { PageType } from '../../types'
 import './header.css'
 
-const HeaderPresenter = () => {
+interface HeaderPresenterProps {
+    currentPage: PageType;
+    onPageChange: (page: PageType) => void;
+}
+
+const HeaderPresenter = ({ currentPage, onPageChange }: HeaderPresenterProps) => {
     return (
         <motion.header
             className="header"
@@ -37,10 +43,22 @@ const HeaderPresenter = () => {
                         <BarChart3 size={16} />
                         <span>Live Data</span>
                     </div>
+                    {/* Example navigation, replace with your Navigation component if needed */}
+                    <nav className="nav">
+                        {['dashboard', 'data-download', 'analytics', 'settings'].map((page) => (
+                            <button
+                                key={page}
+                                className={currentPage === page ? 'active' : ''}
+                                onClick={() => onPageChange(page as PageType)}
+                            >
+                                {page.charAt(0).toUpperCase() + page.slice(1)}
+                            </button>
+                        ))}
+                    </nav>
                 </motion.div>
             </div>
         </motion.header>
-    )
+    );
 }
 
 export default HeaderPresenter
