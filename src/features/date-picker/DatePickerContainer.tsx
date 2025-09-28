@@ -1,4 +1,3 @@
-// src/features/date-picker/DatePickerContainer.tsx
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import DatePickerPresenter from './DatePickerPresenter'

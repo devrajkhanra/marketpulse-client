@@ -1,6 +1,5 @@
-// src/features/status/StatusPresenter.tsx
 import { motion } from 'framer-motion'
-import { Calendar, Clock, Database, CheckCircle } from 'lucide-react'
+import { Calendar, Clock, Database, CheckCircle, Beef } from 'lucide-react'
 import './status-card.css'
 
 interface StatusPresenterProps {
@@ -19,7 +18,7 @@ const StatusPresenter = ({ currentDate, lastDownloadDate, isLoading }: StatusPre
                 transition={{ duration: 0.5 }}
             >
                 <div className="status-icon">
-                    <Database size={24} />
+                    <Beef size={24} />
                 </div>
                 <h2 className="status-title">System Status</h2>
             </motion.div>

@@ -1,4 +1,3 @@
-// src/features/status/StatusContainer.tsx
 import StatusPresenter from './StatusPresenter'
 import { format } from 'date-fns'
 import { useLastDownloadDate } from '../../hooks/useApi'

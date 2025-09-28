@@ -1,4 +1,3 @@
-// src/features/header/HeaderContainer.tsx
 import HeaderPresenter from './HeaderPresenter'
 import type { PageType } from '../../types'
 

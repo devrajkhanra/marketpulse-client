@@ -1,6 +1,5 @@
-// src/features/download/DownloadPresenter.tsx
 import { motion, AnimatePresence } from 'framer-motion'
-import { Download, FileText, BarChart3, TrendingUp, Database, CheckCircle, AlertCircle, Calendar } from 'lucide-react'
+import { Download, FileText, BarChart3, TrendingUp, Database, CheckCircle, AlertCircle, Calendar, Beef } from 'lucide-react'
 import './download-section.css'
 
 interface DownloadPresenterProps {
@@ -28,7 +27,7 @@ const DownloadPresenter = ({ selectedDates, downloadedFiles, downloadMutation, h
                 transition={{ duration: 0.5 }}
             >
                 <div className="download-icon">
-                    <Download size={24} />
+                    <Beef size={24} />
                 </div>
                 <div className="download-header-content">
                     <h2 className="download-title">Download NSE Data</h2>

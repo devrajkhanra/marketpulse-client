@@ -1,4 +1,3 @@
-// src/features/download/DownloadContainer.tsx
 import { useState } from 'react'
 import DownloadPresenter from './DownloadPresenter'
 import { useDownloadCSVs } from '../../hooks/useApi'
@@ -35,25 +34,25 @@ const DownloadContainer = ({ selectedDates, onClearDates }: DownloadProps) => {
             icon: 'TrendingUp',
             name: 'Stocks',
             description: 'Stock market data',
-            color: 'var(--primary-500)'
+            color: '#FFC107'
         },
         {
             icon: 'BarChart3',
             name: 'Indices',
             description: 'Market indices data',
-            color: 'var(--secondary-500)'
+            color: '#9C27B0'
         },
         {
             icon: 'Database',
             name: 'Market Analysis',
             description: 'MA data files',
-            color: 'var(--success-500)'
+            color: '#4CAF50'
         },
         {
             icon: 'FileText',
             name: 'Broad Market',
             description: 'Nifty 50 list',
-            color: 'var(--warning-500)'
+            color: '#FF9800'
         }
     ]
 

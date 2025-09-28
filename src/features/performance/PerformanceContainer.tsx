@@ -1,4 +1,3 @@
-// src/features/performance/PerformanceContainer.tsx
 import { useState, useEffect } from 'react'
 import PerformancePresenter from './PerformancePresenter'
 import { useTopGainerLoser, useLastDownloadDate } from '../../hooks/useApi'

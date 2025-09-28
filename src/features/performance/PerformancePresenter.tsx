@@ -1,6 +1,5 @@
-// src/features/performance/PerformancePresenter.tsx
 import { motion } from 'framer-motion'
-import { ArrowUp, ArrowDown, Calendar } from 'lucide-react'
+import { ArrowUp, ArrowDown, Calendar, Beef } from 'lucide-react'
 import './performance-card.css'
 
 interface PerformancePresenterProps {
@@ -21,7 +20,7 @@ const PerformancePresenter = ({ displayDate, setDisplayDate, data, isLoading, er
                 transition={{ duration: 0.5 }}
             >
                 <div className="performance-icon">
-                    <ArrowUp size={24} />
+                    <Beef size={24} />
                 </div>
                 <h2 className="performance-title">Market Performance</h2>
             </motion.div>

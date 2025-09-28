@@ -1,6 +1,5 @@
-// src/features/date-picker/DatePickerPresenter.tsx
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, Plus, X, CalendarDays, CalendarRange } from 'lucide-react'
+import { Calendar, Plus, X, CalendarDays, CalendarRange, Beef } from 'lucide-react'
 import './date-picker.css'
 
 interface DatePickerPresenterProps {
@@ -47,7 +46,7 @@ const DatePickerPresenter = ({
                 transition={{ duration: 0.5 }}
             >
                 <div className="date-picker-icon">
-                    <Calendar size={24} />
+                    <Beef size={24} />
                 </div>
                 <h2 className="date-picker-title">Select Dates</h2>
             </motion.div>

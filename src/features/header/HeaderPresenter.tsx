@@ -1,6 +1,5 @@
-// src/features/header/HeaderPresenter.tsx
 import { motion } from 'framer-motion'
-import { TrendingUp, Activity, BarChart3 } from 'lucide-react'
+import { Beef, TrendingUp, Activity } from 'lucide-react'
 import type { PageType } from '../../types'
 import './header.css'
 
@@ -24,11 +23,11 @@ const HeaderPresenter = ({ currentPage, onPageChange }: HeaderPresenterProps) =>
                     transition={{ type: "spring", stiffness: 300 }}
                 >
                     <div className="logo-icon">
-                        <TrendingUp size={28} />
+                        <Beef size={28} />
                         <Activity size={20} className="logo-accent" />
                     </div>
                     <div className="logo-text">
-                        <h1 className="logo-title">MarketPulse</h1>
+                        <h1 className="logo-title">MarketHive</h1>
                         <span className="logo-subtitle">NSE Data Manager</span>
                     </div>
                 </motion.div>
@@ -40,10 +39,9 @@ const HeaderPresenter = ({ currentPage, onPageChange }: HeaderPresenterProps) =>
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
                     <div className="stat-item">
-                        <BarChart3 size={16} />
+                        <TrendingUp size={16} />
                         <span>Live Data</span>
                     </div>
-                    {/* Example navigation, replace with your Navigation component if needed */}
                     <nav className="nav">
                         {['dashboard', 'data-download', 'analytics', 'settings'].map((page) => (
                             <button

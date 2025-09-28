@@ -1,1 +1,2 @@
-export type PageType = 'dashboard' | 'data-download' | 'analytics' | 'settings';
+
+export type SectionType = 'overview' | 'performance' | 'download' | 'settings';

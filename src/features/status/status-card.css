@@ -1,16 +1,19 @@
-/* src/features/status/status-card.css */
-/* (same as previous StatusCard.css) */
 .status-card {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .status-header {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-6);
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .status-icon {
@@ -19,42 +22,42 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--gradient-success);
-  border-radius: var(--radius-xl);
+  background: linear-gradient(45deg, #ffc107, #ffca28);
+  border-radius: 12px;
   color: white;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .status-title {
-  font-family: var(--font-secondary);
+  font-family: "Poppins", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--gray-100);
+  color: #212121;
   margin: 0;
 }
 
 .status-grid {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: 15px;
   flex: 1;
 }
 
 .status-item {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-normal);
+  gap: 12px;
+  padding: 15px;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .status-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateX(4px);
+  background: #f5f5f5;
+  border-color: rgba(0, 0, 0, 0.1);
+  transform: translateX(5px);
 }
 
 .status-item-icon {
@@ -63,87 +66,87 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  color: var(--primary-400);
-  transition: all var(--transition-normal);
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 8px;
+  color: #ffc107;
+  transition: all 0.3s ease;
 }
 
 .status-item-icon.status-online {
-  background: rgba(34, 197, 94, 0.2);
-  color: var(--success-400);
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
 }
 
 .status-item-content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 5px;
   flex: 1;
 }
 
 .status-label {
   font-size: 0.875rem;
-  color: var(--gray-400);
+  color: #757575;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .status-value {
-  font-family: var(--font-mono);
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--gray-100);
+  color: #212121;
 }
 
 .status-day {
   font-size: 0.875rem;
-  color: var(--gray-400);
+  color: #757575;
   font-weight: 400;
-  margin-left: var(--space-2);
+  margin-left: 8px;
 }
 
 .status-online-text {
-  color: var(--success-400);
+  color: #4caf50;
 }
 
 .loading-text {
-  color: var(--warning-400);
+  color: #ff9800;
   animation: pulse 2s infinite;
 }
 
 .no-data {
-  color: var(--gray-500);
+  color: #b0bec5;
   font-style: italic;
 }
 
 .status-footer {
-  margin-top: var(--space-6);
-  padding-top: var(--space-4);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .status-indicator {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 8px;
   font-size: 0.875rem;
-  color: var(--gray-300);
+  color: #616161;
 }
 
 .pulse-dot {
   width: 8px;
   height: 8px;
-  background: var(--success-500);
+  background: #4caf50;
   border-radius: 50%;
   animation: pulse 2s infinite;
-  box-shadow: 0 0 8px var(--success-500);
+  box-shadow: 0 0 8px #4caf50;
 }
 
 @media (max-width: 768px) {
   .status-header {
-    gap: var(--space-2);
-    margin-bottom: var(--space-4);
+    gap: 10px;
+    margin-bottom: 15px;
   }
 
   .status-icon {
@@ -156,15 +159,27 @@
   }
 
   .status-grid {
-    gap: var(--space-3);
+    gap: 10px;
   }
 
   .status-item {
-    padding: var(--space-3);
+    padding: 10px;
   }
 
   .status-item-icon {
     width: 32px;
     height: 32px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
