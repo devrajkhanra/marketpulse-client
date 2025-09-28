@@ -27,7 +27,7 @@ const DownloadPresenter = ({ selectedDates, downloadedFiles, downloadMutation, h
                 transition={{ duration: 0.5 }}
             >
                 <div className="download-icon">
-                    <Beef size={24} />
+                    <Beef size={32} stroke={'#4e7294'} />
                 </div>
                 <div className="download-header-content">
                     <h2 className="download-title">Download NSE Data</h2>
@@ -38,7 +38,7 @@ const DownloadPresenter = ({ selectedDates, downloadedFiles, downloadMutation, h
             </motion.div>
 
             <motion.div
-                className="data-types-grid"
+                className="data-types-bar"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -48,13 +48,13 @@ const DownloadPresenter = ({ selectedDates, downloadedFiles, downloadMutation, h
                     return (
                         <motion.div
                             key={type.name}
-                            className="data-type-card"
+                            className="data-type-bar-item"
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
                         >
                             <div className="data-type-icon" style={{ color: type.color }}>
-                                <Icon size={20} />
+                                <Icon size={24} stroke={'#4e7294'} />
                             </div>
                             <div className="data-type-content">
                                 <h3 className="data-type-name">{type.name}</h3>
@@ -73,11 +73,11 @@ const DownloadPresenter = ({ selectedDates, downloadedFiles, downloadMutation, h
             >
                 <div className="download-stats">
                     <div className="stat-item">
-                        <Calendar size={16} />
+                        <Calendar size={16} stroke={'var(--gray-700)'} strokeWidth={1.5} />
                         <span>{selectedDates.length} dates selected</span>
                     </div>
                     <div className="stat-item">
-                        <Database size={16} />
+                        <Database size={16} stroke={'var(--gray-700)'} strokeWidth={1.5} />
                         <span>{dataTypes.length} data types</span>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ const DownloadPresenter = ({ selectedDates, downloadedFiles, downloadMutation, h
                         </>
                     ) : (
                         <>
-                            <Download size={20} />
+                            <Download size={20} strokeWidth={1} />
                             <span>Download Data</span>
                         </>
                     )}

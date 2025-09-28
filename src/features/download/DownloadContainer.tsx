@@ -44,7 +44,7 @@ const DownloadContainer = ({ selectedDates, onClearDates }: DownloadProps) => {
         },
         {
             icon: 'Database',
-            name: 'Market Analysis',
+            name: 'Market Activity',
             description: 'MA data files',
             color: '#4CAF50'
         },

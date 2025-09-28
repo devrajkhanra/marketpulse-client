@@ -23,23 +23,23 @@
   align-items: center;
   gap: 12px;
   padding: 12px 20px;
-  color: #757575;
-  font-family: "Poppins", sans-serif;
+  color: #4e7294;
+  font-family: sans-serif;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 50;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .sidebar-item:hover,
 .sidebar-item.active {
-  background: linear-gradient(90deg, rgba(255, 193, 7, 0.1), transparent);
-  color: #212121;
+  background: #f4f9ff;
+  color: #4e7294;
 }
 
 .sidebar-item.active {
-  background: #9c27b0;
-  color: white;
+  background: #f4f9ff;
+  color: #3b9ae9;
 }
 
 .sidebar-item svg {

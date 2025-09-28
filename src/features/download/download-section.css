@@ -12,38 +12,109 @@
 }
 
 .download-icon {
+  padding-left: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, #ffc107, #ffca28);
-  border-radius: 12px;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .download-title {
-  font-family: "Poppins", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.75rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #212121;
   margin: 0;
+}
+
+.download-subtitle {
+  font-family: Manrope, system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-size: 1rem;
+  color: #757575;
+  margin: 0;
+}
+
+.data-types-bar {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  padding-left: 15px;
+  border-radius: 12px;
+  gap: 15px;
+}
+
+.data-type-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.data-type-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f9ff;
+  border-radius: 50%;
+  padding: 12px;
+}
+
+.data-type-name {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #212121;
+}
+
+.data-type-description {
+  font-family: sans-serif;
+  font-weight: 100;
+  font-size: 0.75rem;
+  color: #424242;
 }
 
 .download-controls {
   display: flex;
   flex-direction: column;
+  gap: 25px;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.download-stats {
+  display: flex;
+  gap: 24px;
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  color: #424242;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
   gap: 15px;
-  padding: 25px;
-  background: #fafafa;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
+}
+
+.preview-label {
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  color: #424242;
+}
+
+.dates-preview {
+  display: flex;
+  flex-direction: row;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #424242;
+  gap: 12px;
 }
 
 .download-btn {
   padding: 12px 24px;
-  background: #4caf50;
+  background: #2a1f94;
   color: white;
   border: none;
   border-radius: 8px;
@@ -52,13 +123,15 @@
   align-items: center;
   gap: 10px;
   transition: all 0.3s ease;
-  font-family: "Roboto", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1rem;
   font-weight: 500;
+  max-width: fit-content;
 }
 
 .download-btn:hover {
-  background: #45a049;
+  background: #21147a;
+  cursor: pointer;
 }
 
 .download-btn:disabled {
@@ -134,7 +207,7 @@
 }
 
 .picker-type-option.active {
-  background: #9c27b0;
+  background: #e3eef8;
   color: white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
@@ -179,14 +252,14 @@
 }
 
 .date-input:focus {
-  border-color: #9c27b0;
+  border-color: #e3eef8;
   box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.1);
   outline: none;
 }
 
 .add-date-btn {
   padding: 10px 20px;
-  background: #4caf50;
+  background: #e3eef8;
   color: white;
   border: none;
   border-radius: 8px;
