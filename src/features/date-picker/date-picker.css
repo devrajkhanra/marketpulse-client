@@ -24,7 +24,7 @@
 }
 
 .date-picker-title {
-  font-family: "Poppins", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   color: #212121;
@@ -45,6 +45,7 @@
 }
 
 .picker-type-option {
+  font-family: "Manrope", sans-serif;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -65,7 +66,7 @@
 }
 
 .picker-type-option.active {
-  background: #9c27b0;
+  background: #0171d3;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -110,7 +111,7 @@
 }
 
 .date-input:focus {
-  border-color: #9c27b0;
+  border-color: #0171d3;
   box-shadow: 0 0 0 2px rgba(156, 39, 176, 0.2);
   outline: none;
 }

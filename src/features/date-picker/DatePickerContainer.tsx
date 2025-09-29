@@ -42,7 +42,8 @@ const DatePickerContainer = ({ selectedDates, onDatesChange }: DatePickerProps) 
         }
         setIsAdding(true)
         setTimeout(() => {
-            onDatesChange([...selectedDates, apiFormat])
+            const safeSelectedDates = Array.isArray(selectedDates) ? selectedDates : [];
+            onDatesChange([...safeSelectedDates, apiFormat])
             setInputDate('')
             setIsAdding(false)
             toast.success('Date added successfully')
@@ -67,7 +68,8 @@ const DatePickerContainer = ({ selectedDates, onDatesChange }: DatePickerProps) 
         setIsAdding(true)
         setTimeout(() => {
             const rangeDates = generateDateRange(startAPI, endAPI)
-            onDatesChange([...selectedDates, ...rangeDates])
+            const safeSelectedDates = Array.isArray(selectedDates) ? selectedDates : [];
+            onDatesChange([...safeSelectedDates, ...rangeDates])
             setRangeStart('')
             setRangeEnd('')
             setIsAdding(false)
@@ -104,7 +106,8 @@ const DatePickerContainer = ({ selectedDates, onDatesChange }: DatePickerProps) 
     }
 
     const removeDate = (dateToRemove: string) => {
-        onDatesChange(selectedDates.filter(date => date !== dateToRemove))
+        const safeSelectedDates = Array.isArray(selectedDates) ? selectedDates : [];
+        onDatesChange(safeSelectedDates.filter(date => date !== dateToRemove))
     }
 
     const clearAllDates = () => {

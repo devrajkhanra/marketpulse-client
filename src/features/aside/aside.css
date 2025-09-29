@@ -1,0 +1,19 @@
+.aside-content {
+  padding: 20px 30px;
+  width: calc(100% - 786px);
+  min-height: calc(100vh - 60px);
+}
+
+.aside-container {
+  max-width: 480px;
+  margin: 0;
+}
+
+.card-section {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}

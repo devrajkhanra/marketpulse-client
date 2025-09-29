@@ -42,22 +42,9 @@
   min-height: calc(100vh - 60px);
 }
 
-.top-bar {
-  position: sticky;
-  top: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 12px 30px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  z-index: 10;
-}
-
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 786px;
+  margin: 0;
 }
 
 .card-section {

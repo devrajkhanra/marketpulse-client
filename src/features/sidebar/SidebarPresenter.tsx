@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { BarChart2, Settings, Beef } from 'lucide-react'
+import { BarChart2, Settings, Beef, LayoutDashboard, DownloadCloud } from 'lucide-react'
 import './sidebar.css'
 import type { SectionType } from '../../types'
 
@@ -25,6 +25,20 @@ const SidebarPresenter = ({ activeSection, onSectionChange }: SidebarPresenterPr
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
             >
+                <div
+                    className={`sidebar-item ${activeSection === 'overview' ? 'active' : ''}`}
+                    onClick={() => onSectionChange('overview')}
+                >
+                    <LayoutDashboard />
+                    <span>Overview</span>
+                </div>
+                <div
+                    className={`sidebar-item ${activeSection === 'download' ? 'active' : ''}`}
+                    onClick={() => onSectionChange('download')}
+                >
+                    <DownloadCloud />
+                    <span>Download</span>
+                </div>
                 <div
                     className={`sidebar-item ${activeSection === 'performance' ? 'active' : ''}`}
                     onClick={() => onSectionChange('performance')}

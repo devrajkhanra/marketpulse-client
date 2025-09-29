@@ -37,6 +37,7 @@ const DatePickerPresenter = ({
     removeDate,
     clearAllDates
 }: DatePickerPresenterProps) => {
+    const safeSelectedDates = Array.isArray(selectedDates) ? selectedDates : [];
     return (
         <div className="date-picker">
             <motion.div
@@ -169,7 +170,7 @@ const DatePickerPresenter = ({
             >
                 <div className="selected-dates-header">
                     <h3 className="section-title">Selected Dates</h3>
-                    {selectedDates.length > 0 && (
+                    {safeSelectedDates.length > 0 && (
                         <button className="clear-all-btn" onClick={clearAllDates}>
                             Clear All
                         </button>
@@ -177,7 +178,7 @@ const DatePickerPresenter = ({
                 </div>
 
                 <AnimatePresence>
-                    {selectedDates.length === 0 ? (
+                    {safeSelectedDates.length === 0 ? (
                         <motion.div
                             className="empty-state"
                             initial={{ opacity: 0 }}
@@ -195,7 +196,7 @@ const DatePickerPresenter = ({
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                         >
-                            {selectedDates.map(date => (
+                            {safeSelectedDates.map(date => (
                                 <motion.div
                                     key={date}
                                     className="selected-date-item"
