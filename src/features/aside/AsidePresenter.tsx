@@ -4,6 +4,7 @@ import './aside.css'
 import type { SectionType } from '../../types'
 import PerformanceContainer from '../performance/PerformanceContainer';
 import DatePickerContainer from '../date-picker/DatePickerContainer';
+import VolumeContainer from '../volume/VolumeContainer';
 
 interface AsidePresenterProps {
     activeSection: SectionType;
@@ -29,14 +30,9 @@ const AsidePresenter = ({ activeSection, onSectionChange, selectedDates, onDates
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    {activeSection === 'performance' ? (
-                        <></>
-                    ) : (
-                        <>
-                            {/* <DownloadContainer selectedDates={selectedDates} onClearDates={() => setSelectedDates([])} /> */}
-                            <DatePickerContainer selectedDates={selectedDates} onDatesChange={onDatesChange} />
-                        </>
-                    )}
+                    {activeSection === 'performance' && <></>}
+                    {activeSection === 'download' && <DatePickerContainer selectedDates={selectedDates} onDatesChange={onDatesChange} />}
+                    {activeSection === 'overview' && <VolumeContainer />}
                 </motion.div>
 
             </motion.div>

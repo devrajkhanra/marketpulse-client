@@ -27,7 +27,7 @@ const DownloadPresenter = ({ selectedDates, downloadedFiles, downloadMutation, h
                 transition={{ duration: 0.5 }}
             >
                 <div className="download-icon">
-                    <Beef size={32} stroke={'#4e7294'} />
+                    <Beef size={24} />
                 </div>
                 <div className="download-header-content">
                     <h2 className="download-title">Download NSE Data</h2>

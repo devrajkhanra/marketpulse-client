@@ -19,6 +19,11 @@ interface TopGainerLoser {
   topLosers: { symbol: string; percentage: number }[];
 }
 
+interface VolumeRatio {
+  symbol: string;
+  difference: string;
+}
+
 // API Functions
 const getCurrentDate = async (): Promise<DateDetails> => {
   const response = await api.get('/date/details')
@@ -37,6 +42,11 @@ const downloadCSVs = async (dates: string[]): Promise<string[]> => {
 
 const getTopGainerLoser = async (date?: string): Promise<TopGainerLoser> => {
   const response = await api.get(`/performance/top-gainers-losers${date ? `?date=${date}` : ''}`)
+  return response.data
+}
+
+const getVolumeRatio = async (dates: string[]): Promise<VolumeRatio[]> => {
+  const response = await api.post(`/volume/differences`, { dates })
   return response.data
 }
 
@@ -74,5 +84,11 @@ export const useTopGainerLoser = (date?: string) => {
     queryKey: ['topGainerLoser', date],
     queryFn: () => getTopGainerLoser(date),
     staleTime: 5 * 60 * 1000, // 5 minutes
+  })
+}
+
+export const useVolumeRatio = () => {
+  return useMutation({
+    mutationFn: getVolumeRatio,
   })
 }

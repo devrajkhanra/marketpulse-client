@@ -8,7 +8,7 @@ import './App.css'
 import AsideContainer from './features/aside/AsideContainer'
 
 function App() {
-  const [activeSection, setActiveSection] = useState<SectionType>('performance')
+  const [activeSection, setActiveSection] = useState<SectionType>('overview')
   const [selectedDates, setSelectedDates] = useState<string[]>([])
 
   return (
@@ -28,13 +28,9 @@ function App() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {activeSection === 'performance' ? (
-              <PerformanceContainer />
-            ) : (
-              <>
-                <DownloadContainer selectedDates={selectedDates} onClearDates={() => setSelectedDates([])} />
-              </>
-            )}
+            {activeSection === 'performance' && <PerformanceContainer />}
+            {activeSection === 'download' && <DownloadContainer selectedDates={selectedDates} onClearDates={() => setSelectedDates([])} />}
+
           </motion.div>
         </motion.div>
       </div>

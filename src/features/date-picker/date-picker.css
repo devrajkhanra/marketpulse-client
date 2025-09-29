@@ -26,13 +26,13 @@
 .date-picker-title {
   font-family: "Manrope", sans-serif;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #212121;
   margin: 0;
 }
 
 .picker-type-section {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .picker-type-toggle {
@@ -40,7 +40,6 @@
   gap: 8px;
   padding: 4px;
   background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
@@ -102,7 +101,6 @@
   width: 100%;
   padding: 8px 12px 8px 36px;
   background: #fafafa;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   color: #212121;
   font-family: "Roboto", sans-serif;
@@ -159,9 +157,9 @@
 }
 
 .section-title {
-  font-family: "Poppins", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 100;
   color: #212121;
   margin: 0;
 }
@@ -206,7 +204,7 @@
 }
 
 .date-text {
-  font-family: "Roboto", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
   color: #424242;
@@ -242,19 +240,19 @@
 }
 
 .empty-icon {
-  margin-bottom: 12px;
+  margin-bottom: 0px;
   opacity: 0.5;
 }
 
 .empty-state p {
   font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 8px;
+  font-weight: 300;
+  margin-bottom: 5px;
   color: #757575;
 }
 
 .empty-state span {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: #b0bec5;
 }
 
